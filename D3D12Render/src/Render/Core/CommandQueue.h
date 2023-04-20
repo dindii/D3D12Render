@@ -45,18 +45,18 @@ private:
 
 	D3D12_COMMAND_LIST_TYPE m_CommandListType;
 
-	Microsoft::WRL::ComPtr<ID3D12Device2>		m_D3D12Device;
+	Microsoft::WRL::ComPtr<ID3D12Device2>       m_D3D12Device;
 	Microsoft::WRL::ComPtr<ID3D12CommandQueue>  m_D3D12CommandQueue;
-	Microsoft::WRL::ComPtr<ID3D12Fence>			m_D3D12Fence;
+	Microsoft::WRL::ComPtr<ID3D12Fence>         m_D3D12Fence;
 
 	//the fence is continuous and it will be updated once an allocator has reached its end. 
 	//So, the first allocator has CPU Side value as 1 and the fence is on 0. After this allocator ends, it will increment the fence to 1
 	//Then, the fence being equal to the CPU fence value, it assumes that it can reuse this allocator. 
-	HANDLE										m_FenceEvent;
+	HANDLE                  m_FenceEvent;
 
 	//This fence value will be used as the main fence value. This is, we will increment this value and then pass it to the next allocator as being the CPU fence value.
-	uint64_t									m_FenceValue;
+	uint64_t                m_FenceValue;
 
-	CommandAllocatorQueue						m_CommandAllocatorQueue;
-	CommandListQueue							m_CommandListQueue;
+	CommandAllocatorQueue   m_CommandAllocatorQueue;
+	CommandListQueue        m_CommandListQueue;
 };
