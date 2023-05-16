@@ -2,6 +2,7 @@
 
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h> // For HRESULT
+#include <iostream>
 
 inline bool Check(HRESULT hr, const char* msg = "DirectX 12 Check Failed!")
 {
